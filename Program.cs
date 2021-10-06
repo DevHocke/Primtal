@@ -10,6 +10,7 @@ namespace Primtal
     {
         static void Main(string[] args)
         {
+            new Menu().userMenu();
         }
     }
 }

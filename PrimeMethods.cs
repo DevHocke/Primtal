@@ -10,17 +10,17 @@ namespace Primtal
     {
         private List<int> primeNumbers = new List<int>();
 
-        public int calculateUserInputCheckIfPrimeNumber(float userInput)
+        public int calculateUserInputCheckIfPrimeNumber(double userInput)
         {
             return 0;
         }
 
-        public int addUserInputToPrimeNumberList(float addNumberToList)
+        public void addNextPrimeNumberToPrimeNumberList()
         {
-            return 0;
+            
         }
 
-        public void printListOfPrimeNumbers(List<int> primeNumbers)
+        public void printListOfPrimeNumbers()
         {
             foreach (var number in primeNumbers)
             {
