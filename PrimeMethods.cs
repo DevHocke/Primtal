@@ -20,7 +20,7 @@ namespace Primtal
 
         public void addNextPrimeNumberToPrimeNumberList()
         {
-            
+
         }
 
         public void printListOfPrimeNumbers()
@@ -30,6 +30,5 @@ namespace Primtal
                 Console.WriteLine(number);
             }
         }
-
     }
 }
