@@ -10,9 +10,12 @@ namespace Primtal
     {
         private List<int> primeNumbers = new List<int>();
 
-        public int calculateUserInputCheckIfPrimeNumber(double userInput)
+        public bool calculateUserInputCheckIfPrimeNumber(int userInput)
         {
-            return 0;
+            // ger roten ur talet.
+            // loopa samtliga tal mellan 0 och userinput
+            Math.Sqrt(userInput);
+            return true;
         }
 
         public void addNextPrimeNumberToPrimeNumberList()

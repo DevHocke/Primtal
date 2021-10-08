@@ -10,8 +10,8 @@ namespace Primtal
     {
         public void userMenu()
         {
-            int menu = 0;
-            double numberToCheck;
+            PrimeMethods pm = new PrimeMethods();
+            bool keepGoing = true;
             do
             {
                 Console.WriteLine("XxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxX");
@@ -23,56 +23,51 @@ namespace Primtal
                 Console.WriteLine("X 0. Exit program.                                    X");
                 Console.WriteLine("XxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxX");
                 Console.Write("Use menu number: ");
-                try
+                var works = int.TryParse(Console.ReadLine(), out int menu);
+
+                switch (menu)
                 {
-                    menu = Convert.ToInt32(Console.ReadLine());
-                    switch (menu)
-                    {
-                        case 1:
-                            Console.WriteLine("Enter the number you want to check: ");
-                            try
+                    case 1:
+                        Console.WriteLine("Enter the number you want to check: ");
+                        
+                            works = int.TryParse(Console.ReadLine(), out int numberToCheck);
+                            if (works)
                             {
-                                numberToCheck = Convert.ToDouble(Console.ReadLine());
-                                new PrimeMethods().calculateUserInputCheckIfPrimeNumber(numberToCheck);
-                                Console.WriteLine("Press any key to continue. . .");
-                                Console.ReadKey();
-                                Console.Clear();
+                                pm.calculateUserInputCheckIfPrimeNumber(numberToCheck);
                             }
-                            catch
+                            else
                             {
-                                Console.WriteLine("Not a valid number, please try again: ");
-                                System.Threading.Thread.Sleep(1300);
-                                Console.Clear();
+                                 Console.WriteLine("Not a valid menu number, please try again: ");
                             }
-                            break;
-                        case 2:
-                            new PrimeMethods().printListOfPrimeNumbers();
                             Console.WriteLine("Press any key to continue. . .");
                             Console.ReadKey();
                             Console.Clear();
-                            break;
-                        case 3:
-                            new PrimeMethods().addNextPrimeNumberToPrimeNumberList();
-                            Console.WriteLine("Press any key to continue. . .");
-                            Console.ReadKey();
-                            Console.Clear();
-                            break;
-                        case 0:
-                            Console.WriteLine("Exiting the Prime calculator please wait. . .");
-                            System.Threading.Thread.Sleep(2750);
-                            Environment.Exit(0);
-                            break;
-                    }
-                }
-                catch
-                {
-                    Console.WriteLine("Not a valid number, please try again: ");
-                    System.Threading.Thread.Sleep(1300);
-                    Console.Clear();
+                        break;
+                    case 2:
+                        new PrimeMethods().printListOfPrimeNumbers();
+                        Console.WriteLine("Press any key to continue. . .");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 3:
+                        new PrimeMethods().addNextPrimeNumberToPrimeNumberList();
+                        Console.WriteLine("Press any key to continue. . .");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 4:
+                        Console.WriteLine("Exiting the Prime calculator please wait. . .");
+                        System.Threading.Thread.Sleep(2750);
+                        Environment.Exit(0);
+                        break;
+                    case 0:
+                        Console.WriteLine("Not a valid menu choice, please try again: ");
+                        System.Threading.Thread.Sleep(1300);
+                        Console.Clear();
+                        break;
                 }
 
-            } while (menu != 0);
-            Console.ReadKey();
+            } while (keepGoing);
         }
     }
 }
