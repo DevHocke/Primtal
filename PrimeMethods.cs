@@ -13,21 +13,35 @@ namespace Primtal
         public bool calculateUserInputCheckIfPrimeNumber(int userInput)
         {
             // ger roten ur talet.
-            // loopa samtliga tal mellan 0 och userinput
-            Math.Sqrt(userInput);
+            // loopa samtliga tal mellan 0 och roten ur userinput
+            double sqrtUserInput = Math.Sqrt(userInput);
+            double answer;
+            for (int i = 1; i <= Math.Floor(sqrtUserInput); i++)
+            {
+                
+            }
             return false;
         }
 
-        public void addNextPrimeNumberToPrimeNumberList()
+        public void addNextPrimeNumberToPrimeNumberList(int primeNumber)
         {
-
+            if (primeNumbers.Contains(primeNumber))
+            {
+                printListOfPrimeNumbers();
+            }
+            else
+            {
+                primeNumbers.Add(primeNumber);
+                primeNumbers.Sort();
+            }
         }
 
         public void printListOfPrimeNumbers()
         {
+            Console.WriteLine($"These are the prime numbers in the list:");
             foreach (var number in primeNumbers)
             {
-                Console.WriteLine(number);
+                Console.WriteLine($"{number}");
             }
         }
     }
