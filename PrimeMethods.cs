@@ -15,7 +15,7 @@ namespace Primtal
             // ger roten ur talet.
             // loopa samtliga tal mellan 0 och userinput
             Math.Sqrt(userInput);
-            return true;
+            return false;
         }
 
         public void addNextPrimeNumberToPrimeNumberList()

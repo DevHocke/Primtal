@@ -35,7 +35,15 @@ namespace Primtal
                             var works = int.TryParse(Console.ReadLine(), out int numberToCheck);
                             if (works && Math.Sign(numberToCheck) == 1)
                             {
-                                pm.calculateUserInputCheckIfPrimeNumber(numberToCheck);
+                                var answer = pm.calculateUserInputCheckIfPrimeNumber(numberToCheck);
+                                if (answer)
+                                {
+                                    Console.WriteLine("You picked a prime number.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("That is not a prime number.");
+                                }
                             }
                             else
                             {
