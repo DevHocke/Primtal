@@ -54,13 +54,14 @@ namespace Primtal
                             Console.Clear();
                             break;
                         case 2:
-                            new PrimeMethods().printListOfPrimeNumbers();
+                            pm.printListOfPrimeNumbers();
                             Console.WriteLine("Press any key to continue. . .");
                             Console.ReadKey();
                             Console.Clear();
                             break;
                         case 3:
-                            new PrimeMethods().addNextPrimeNumberToPrimeNumberList();
+                            pm.CalculateNextPrimeNumber();
+                            //pm.addNextPrimeNumberToPrimeNumberList(menu);
                             Console.WriteLine("Press any key to continue. . .");
                             Console.ReadKey();
                             Console.Clear();
