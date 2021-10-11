@@ -45,7 +45,25 @@ namespace Primtal
             return true;
         }
 
-       
+        public void CalculateNextPrimeNumber()
+        {
+            // Checks if the primeNumbers list cotains any prime numbers.
+            // If it is empty the first prime number 2 is added to the list.
+            if (primeNumbers.Count == 0)
+            {
+                addNextPrimeNumberToPrimeNumberList(2);
+            }
+            // int n is given the value of the last number in the primeNumber list
+            // The list is sorted lowest to highest value, therefor the last value is the highest
+            // number in the primeNumber list.
+            int n = primeNumbers.Last();
+            // Takes the square root of n (highest value in the list) and stores it in 
+            // a new int to make the calculations needed much more time effective.
+            int sqrtNextNumber = (int)Math.Sqrt(n);
+
+            
+
+        }
         /// <summary>
         /// Takes a int and checks if it exists in the list of prime numbers.
         /// If it exists, the list of prime numbers is printed to the console.
