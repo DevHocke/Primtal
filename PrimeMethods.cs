@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Primtal
 {
@@ -18,7 +15,7 @@ namespace Primtal
         /// <returns>True if it is a prime number, False the number is not a prime number.</returns>
         public bool calculateUserInputCheckIfPrimeNumber(int userInput)
         {
-            // If userinput is less or equal to 1 false is returned.
+            // If user input is less or equal to 1 false is returned.
             if (userInput <= 1)
             {
                 return false;
@@ -44,27 +41,31 @@ namespace Primtal
             addNextPrimeNumberToPrimeNumberList(userInput);
             return true;
         }
-
+        /// <summary>
+        /// Checks after the highest prime number in the list
+        /// and then ads the next prime number.
+        /// </summary>
         public void CalculateNextPrimeNumber()
         {
-            // Checks if the primeNumbers list cotains any prime numbers.
+            // Checks if the primeNumbers list contains any prime numbers.
             // If it is empty the first prime number 2 is added to the list.
             if (primeNumbers.Count == 0)
             {
                 addNextPrimeNumberToPrimeNumberList(2);
             }
-            // int n is given the value of the last number in the primeNumber list
-            // The list is sorted lowest to highest value, therefor the last value is the highest
-            // number in the primeNumber list.
+            // Int n is given the value of the last number in the primeNumber list.
             int n = primeNumbers.Last();
-            // Takes the square root of n (highest value in the list) and stores it in 
-            // a new int to make the calculations needed much more time effective.
-            int sqrtNextNumber = (int)Math.Sqrt(n);
-           
-
-            Console.WriteLine(n);
-            // addNextPrimeNumberToPrimeNumberList(nextPrimeNumber);
-
+            // For loops that starts with the value of n loops as long as i is less or equal to n+1.
+            for (int i = n; i <= n+1;)
+            {
+                // Adds 1 to n each loop.
+                n++;
+                // If the method that calculates prime numbers returns true the loop stops.
+                if (calculateUserInputCheckIfPrimeNumber(n))
+                {
+                    break;
+                }
+            }
         }
         /// <summary>
         /// Takes a int and checks if it exists in the list of prime numbers.
@@ -75,10 +76,13 @@ namespace Primtal
         /// <param name="primeNumber"></param>
         public void addNextPrimeNumberToPrimeNumberList(int primeNumber)
         {
+            // If the list of prime numbers already contains the number all the stored prime numbers are
+            // printed to the console.
             if (primeNumbers.Contains(primeNumber))
             {
                 printListOfPrimeNumbers();
             }
+            // If the list does not contain the number the number is added to the list and then sorted.
             else
             {
                 primeNumbers.Add(primeNumber);
@@ -99,6 +103,7 @@ namespace Primtal
             else
             {
                 Console.WriteLine($"These are the prime numbers in the list:");
+                // Prints every number in the primeNumbers list to the console.
                 foreach (var number in primeNumbers)
                 {
                     Console.WriteLine($"{number}");

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Primtal
 {
@@ -80,7 +75,6 @@ namespace Primtal
                         case 3:
                             // Calculates the next number to add based on the current highest value in the list.
                             pm.CalculateNextPrimeNumber();
-                            //pm.addNextPrimeNumberToPrimeNumberList(menu);
                             Console.WriteLine("Press any key to continue. . .");
                             Console.ReadKey();
                             Console.Clear();
@@ -100,6 +94,8 @@ namespace Primtal
                             break;
                     }
                 }
+                // If the user enters a negative number a text prompting the user to not use negative numbers
+                // is printed to the console.
                 else if (Math.Sign(menu) == -1)
                 {
                     Console.WriteLine("Do not use negative numbers, please try again: ");
