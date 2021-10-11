@@ -60,8 +60,10 @@ namespace Primtal
             // Takes the square root of n (highest value in the list) and stores it in 
             // a new int to make the calculations needed much more time effective.
             int sqrtNextNumber = (int)Math.Sqrt(n);
+           
 
-            
+            Console.WriteLine(n);
+            // addNextPrimeNumberToPrimeNumberList(nextPrimeNumber);
 
         }
         /// <summary>
@@ -89,10 +91,18 @@ namespace Primtal
         /// </summary>
         public void printListOfPrimeNumbers()
         {
-            Console.WriteLine($"These are the prime numbers in the list:");
-            foreach (var number in primeNumbers)
+            // Tells the user that the list is empty if no numbers are stored in the list.
+            if (primeNumbers.Count == 0)
             {
-                Console.WriteLine($"{number}");
+                Console.WriteLine("There are no stored prime numbers.");
+            }
+            else
+            {
+                Console.WriteLine($"These are the prime numbers in the list:");
+                foreach (var number in primeNumbers)
+                {
+                    Console.WriteLine($"{number}");
+                }
             }
         }
     }
