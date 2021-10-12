@@ -16,7 +16,6 @@ namespace Primtal
         {
             // Creates an instance of the PrimeMethods class.
             PrimeMethods pm = new PrimeMethods();
-            bool keepGoing = true;
             do
             {
                 Console.WriteLine("XxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxX");
@@ -36,34 +35,7 @@ namespace Primtal
                     switch (menu)
                     {
                         case 1:
-                            Console.WriteLine("Enter the number you want to check: ");
-                            // If the user input is an allowed number and not negative the bool works is set to true.
-                            var works = int.TryParse(Console.ReadLine(), out int numberToCheck);
-                            if (works && Math.Sign(numberToCheck) == 1)
-                            {   // Checks the approved user input to see if it is a prime number.
-                                // If the number is a prime number True will be returned else it will return false.
-                                var answer = pm.calculateUserInputCheckIfPrimeNumber(numberToCheck);
-                                if (answer)
-                                {   
-                                    // If answer is true, the answer is printed to the console.
-                                    Console.WriteLine("You picked a prime number.");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("That is not a prime number.");
-                                }
-                            }
-                            else if (Math.Sign(numberToCheck) == -1)
-                            {
-                                Console.WriteLine("Do not use negative numbers, please try again: ");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Not a valid number, please try again: ");
-                            }
-                            Console.WriteLine("Press any key to continue. . .");
-                            Console.ReadKey(); // Pauses the program until a key is pressed.
-                            Console.Clear(); // Clears the console.
+                            CheckPrimeNumber(pm);
                             break;
                         case 2:
                             // Prints the entire list of stored prime numbers in the list if any sorted low -> high.
@@ -102,8 +74,41 @@ namespace Primtal
                     System.Threading.Thread.Sleep(1300);
                     Console.Clear();
                 }
+            } while (true); // makes the program run until the user decides to use the exit option in the menu.
+        }
 
-            } while (keepGoing);
+        private static void CheckPrimeNumber(PrimeMethods pm)
+        {
+            Console.WriteLine("Enter the number you want to check: ");
+            // If the user input is an allowed number and not negative the bool works is set to true.
+            var works = int.TryParse(Console.ReadLine(), out int numberToCheck);
+            if (works && Math.Sign(numberToCheck) == 1)
+            {
+                // Checks the approved user input to see if it is a prime number.
+                // If the number is a prime number True will be returned else it will return false.
+                var answer = pm.calculateUserInputCheckIfPrimeNumber(numberToCheck);
+                if (answer)
+                {
+                    // If answer is true, the answer is printed to the console.
+                    Console.WriteLine("You picked a prime number.");
+                }
+                else
+                {
+                    Console.WriteLine("That is not a prime number.");
+                }
+            }
+            else if (Math.Sign(numberToCheck) == -1)
+            {
+                Console.WriteLine("Do not use negative numbers, please try again: ");
+            }
+            else
+            {
+                Console.WriteLine("Not a valid number, please try again: ");
+            }
+
+            Console.WriteLine("Press any key to continue. . .");
+            Console.ReadKey(); // Pauses the program until a key is pressed.
+            Console.Clear(); // Clears the console.
         }
     }
 }

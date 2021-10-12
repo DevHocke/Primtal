@@ -80,6 +80,7 @@ namespace Primtal
             // printed to the console.
             if (primeNumbers.Contains(primeNumber))
             {
+                Console.Clear();
                 printListOfPrimeNumbers();
             }
             // If the list does not contain the number the number is added to the list and then sorted.
