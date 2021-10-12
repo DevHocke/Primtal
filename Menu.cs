@@ -30,30 +30,38 @@ namespace Primtal
                 int.TryParse(Console.ReadLine(), out int menu);
                 if (menu == 0 || Math.Sign(menu) == 1)
                 {
-                    // A Switch case triggering the case matching the users menu choice.
-                    // If anything else then a valid input is made case 0 is triggered.
-                    switch (menu)
+                    // If menu choice is above 4 the user is informed that the choice is invalid.
+                    if (menu > 4)
                     {
-                        // Case 1 lets the user add a number as input to see if it is a prime number.
-                        case 1:
-                            CheckPrimeNumber(pm);
-                            break;
-                        // Case 2 lets the user see a list of currently stored prime numbers.
-                        case 2:
-                            PrintListOfPrimeNumbers(pm);
-                            break;
-                        // Case 3 lets the user add a new highest prime number to the list.
-                        case 3:
-                            AddNextprimeNumberToList(pm);
-                            break;
-                        // Case 4 is used to exit the program.
-                        case 4:
-                            ProgramExit();
-                            break;
-                        // Case 0 is the error handling case (if TryParse fails the default is 0).
-                        case 0:
-                            InvalidUserChoice();
-                            break;
+                        InvalidUserChoice();
+                    }
+                    else
+                    {
+                        // A Switch case triggering the case matching the users menu choice.
+                        // If anything else then a valid input is made case 0 is triggered.
+                        switch (menu)
+                        {
+                            // Case 1 lets the user add a number as input to see if it is a prime number.
+                            case 1:
+                                CheckPrimeNumber(pm);
+                                break;
+                            // Case 2 lets the user see a list of currently stored prime numbers.
+                            case 2:
+                                PrintListOfPrimeNumbers(pm);
+                                break;
+                            // Case 3 lets the user add a new highest prime number to the list.
+                            case 3:
+                                AddNextprimeNumberToList(pm);
+                                break;
+                            // Case 4 is used to exit the program.
+                            case 4:
+                                ProgramExit();
+                                break;
+                            // Case 0 is the error handling case (if TryParse fails the default is 0).
+                            case 0:
+                                InvalidUserChoice();
+                                break;
+                        }
                     }
                 }
                 // If the user enters a negative number a text prompting the user to not use negative numbers
@@ -82,10 +90,10 @@ namespace Primtal
         /// </summary>
         private static void ProgramExit()
         {
-            // Exits the program.
+            
             Console.WriteLine("Exiting the Prime calculator please wait. . .");
             System.Threading.Thread.Sleep(2750);
-            Environment.Exit(0);
+            Environment.Exit(0); // Exits the program.
         }
         /// <summary>
         /// Method for menu choice 3 that lets the user add the closest higher prime number to the list.
