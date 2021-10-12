@@ -34,15 +34,19 @@ namespace Primtal
                     // If anything else then a valid input is made case 0 is triggered.
                     switch (menu)
                     {
+                        // Case 1 lets the user add a number as input to see if it is a prime number.
                         case 1:
                             CheckPrimeNumber(pm);
                             break;
+                        // Case 2 lets the user see a list of currently stored prime numbers.
                         case 2:
                             PrintListOfPrimeNumbers(pm);
                             break;
+                        // Case 3 lets the user add a new highest prime number to the list.
                         case 3:
                             AddNextprimeNumberToList(pm);
                             break;
+                        // Case 4 is used to exit the program.
                         case 4:
                             ProgramExit();
                             break;
@@ -62,7 +66,10 @@ namespace Primtal
                 }
             } while (true); // makes the program run until the user decides to use the exit option in the menu.
         }
-
+        /// <summary>
+        /// Method for switch case 0 witch is the default value when using anything but a int
+        /// in the menu. Letting the user know that a number needs to be used.
+        /// </summary>
         private static void InvalidUserChoice()
         {
             Console.WriteLine("Not a valid menu choice, please try again: ");
@@ -70,7 +77,9 @@ namespace Primtal
             System.Threading.Thread.Sleep(1300);
             Console.Clear();
         }
-
+        /// <summary>
+        /// Menu choice 4 that lets the user close the program.
+        /// </summary>
         private static void ProgramExit()
         {
             // Exits the program.
@@ -78,7 +87,11 @@ namespace Primtal
             System.Threading.Thread.Sleep(2750);
             Environment.Exit(0);
         }
-
+        /// <summary>
+        /// Method for menu choice 3 that lets the user add the closest higher prime number to the list.
+        /// by pressing key 3 in the menu.
+        /// </summary>
+        /// <param name="pm"></param>
         private static void AddNextprimeNumberToList(PrimeMethods pm)
         {
             // Calculates the next number to add based on the current highest value in the list.
@@ -87,7 +100,10 @@ namespace Primtal
             Console.ReadKey();
             Console.Clear();
         }
-
+        /// <summary>
+        /// Method for menu choice 2 that lets the user print the list of current stored prime numbers.
+        /// </summary>
+        /// <param name="pm"></param>
         private static void PrintListOfPrimeNumbers(PrimeMethods pm)
         {
             // Prints the entire list of stored prime numbers in the list if any sorted low -> high.
@@ -96,7 +112,11 @@ namespace Primtal
             Console.ReadKey();
             Console.Clear();
         }
-
+        /// <summary>
+        /// Method for menu choice 1 that lets the user make a number input to check if
+        /// it is a prime number.
+        /// </summary>
+        /// <param name="pm"></param>
         private static void CheckPrimeNumber(PrimeMethods pm)
         {
             Console.WriteLine("Enter the number you want to check: ");
