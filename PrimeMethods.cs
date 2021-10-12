@@ -56,7 +56,7 @@ namespace Primtal
             // Int n is given the value of the last number in the primeNumber list.
             int n = primeNumbers.Last();
             // For loops that starts with the value of n loops as long as i is less or equal to n+1.
-            for (int i = n; i <= n+1;)
+            for (int i = n; i <= n + 1;)
             {
                 // Adds 1 to n each loop.
                 n++;

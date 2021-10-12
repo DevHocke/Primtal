@@ -90,7 +90,6 @@ namespace Primtal
         /// </summary>
         private static void ProgramExit()
         {
-            
             Console.WriteLine("Exiting the Prime calculator please wait. . .");
             System.Threading.Thread.Sleep(2750);
             Environment.Exit(0); // Exits the program.
