@@ -38,18 +38,10 @@ namespace Primtal
                             CheckPrimeNumber(pm);
                             break;
                         case 2:
-                            // Prints the entire list of stored prime numbers in the list if any sorted low -> high.
-                            pm.printListOfPrimeNumbers();
-                            Console.WriteLine("Press any key to continue. . .");
-                            Console.ReadKey();
-                            Console.Clear();
+                            PrintListOfPrimeNumbers(pm);
                             break;
                         case 3:
-                            // Calculates the next number to add based on the current highest value in the list.
-                            pm.CalculateNextPrimeNumber();
-                            Console.WriteLine("Press any key to continue. . .");
-                            Console.ReadKey();
-                            Console.Clear();
+                            AddNextprimeNumberToList(pm);
                             break;
                         case 4:
                             // Exits the program.
@@ -75,6 +67,24 @@ namespace Primtal
                     Console.Clear();
                 }
             } while (true); // makes the program run until the user decides to use the exit option in the menu.
+        }
+
+        private static void AddNextprimeNumberToList(PrimeMethods pm)
+        {
+            // Calculates the next number to add based on the current highest value in the list.
+            pm.CalculateNextPrimeNumber();
+            Console.WriteLine("Press any key to continue. . .");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        private static void PrintListOfPrimeNumbers(PrimeMethods pm)
+        {
+            // Prints the entire list of stored prime numbers in the list if any sorted low -> high.
+            pm.printListOfPrimeNumbers();
+            Console.WriteLine("Press any key to continue. . .");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         private static void CheckPrimeNumber(PrimeMethods pm)
