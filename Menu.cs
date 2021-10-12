@@ -44,17 +44,11 @@ namespace Primtal
                             AddNextprimeNumberToList(pm);
                             break;
                         case 4:
-                            // Exits the program.
-                            Console.WriteLine("Exiting the Prime calculator please wait. . .");
-                            System.Threading.Thread.Sleep(2750);
-                            Environment.Exit(0);
+                            ProgramExit();
                             break;
                         // Case 0 is the error handling case (if TryParse fails the default is 0).
                         case 0:
-                            Console.WriteLine("Not a valid menu choice, please try again: ");
-                            // Pauses the thread 1.3 seconds to let the user know that a invalid input was used.
-                            System.Threading.Thread.Sleep(1300);
-                            Console.Clear();
+                            InvalidUserChoice();
                             break;
                     }
                 }
@@ -67,6 +61,22 @@ namespace Primtal
                     Console.Clear();
                 }
             } while (true); // makes the program run until the user decides to use the exit option in the menu.
+        }
+
+        private static void InvalidUserChoice()
+        {
+            Console.WriteLine("Not a valid menu choice, please try again: ");
+            // Pauses the thread 1.3 seconds to let the user know that a invalid input was used.
+            System.Threading.Thread.Sleep(1300);
+            Console.Clear();
+        }
+
+        private static void ProgramExit()
+        {
+            // Exits the program.
+            Console.WriteLine("Exiting the Prime calculator please wait. . .");
+            System.Threading.Thread.Sleep(2750);
+            Environment.Exit(0);
         }
 
         private static void AddNextprimeNumberToList(PrimeMethods pm)
