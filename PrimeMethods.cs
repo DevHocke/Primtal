@@ -7,13 +7,13 @@ namespace Primtal
     class PrimeMethods
     {
         // Declares a list named primeNumbers to store prime numbers.
-        private List<int> primeNumbers = new List<int>();
+        private List<long> primeNumbers = new List<long>();
         /// <summary>
         /// Takes a user input and checks if it is a prime number.
         /// </summary>
         /// <param name="userInput"></param>
         /// <returns>True if it is a prime number, False the number is not a prime number.</returns>
-        public bool calculateUserInputCheckIfPrimeNumber(int userInput)
+        public bool calculateUserInputCheckIfPrimeNumber(long userInput)
         {
             // If user input is less or equal to 1 false is returned.
             if (userInput <= 1)
@@ -53,10 +53,10 @@ namespace Primtal
             {
                 addNextPrimeNumberToPrimeNumberList(2);
             }
-            // Int n is given the value of the last number in the primeNumber list.
-            int n = primeNumbers.Last();
+            // long n is given the value of the last number in the primeNumber list.
+            var n = primeNumbers.Last();
             // For loops that starts with the value of n loops as long as i is less or equal to n+1.
-            for (int i = n; i <= n + 1;)
+            for (var i = n; i <= n + 1;)
             {
                 // Adds 1 to n each loop.
                 n++;
@@ -68,13 +68,13 @@ namespace Primtal
             }
         }
         /// <summary>
-        /// Takes a int and checks if it exists in the list of prime numbers.
+        /// Takes a long and checks if it exists in the list of prime numbers.
         /// If it exists, the list of prime numbers is printed to the console.
         /// If it does not exist it is added to the prime number list and the
         /// list is then sorted.
         /// </summary>
         /// <param name="primeNumber"></param>
-        public void addNextPrimeNumberToPrimeNumberList(int primeNumber)
+        public void addNextPrimeNumberToPrimeNumberList(long primeNumber)
         {
             // If the list of prime numbers already contains the number all the stored prime numbers are
             // printed to the console.

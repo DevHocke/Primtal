@@ -128,7 +128,7 @@ namespace Primtal
         {
             Console.WriteLine("Enter the number you want to check: ");
             // If the user input is an allowed number and not negative the bool works is set to true.
-            var works = int.TryParse(Console.ReadLine(), out int numberToCheck);
+            var works = long.TryParse(Console.ReadLine(), out long numberToCheck);
             if (works && Math.Sign(numberToCheck) == 1)
             {
                 // Checks the approved user input to see if it is a prime number.
